@@ -1,6 +1,10 @@
 {
   "extends": ["airbnb-base", "prettier"],
   "plugins": ["prettier"],
+  "env": {
+    "browser": true,  // Add this line to specify the browser environment
+    "es2021": true    // Ensure support for ES2021 features
+  },
   "rules": {
     "prettier/prettier": ["error", {
     "tabWidth": 4,
