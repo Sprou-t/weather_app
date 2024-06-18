@@ -1,6 +1,7 @@
 import './index.css';
 import './reset.css';
 import logoIcon from '../photo/cloud-clock-outline.svg';
+import fetchWeatherData from './handle_API'
 
 const body = document.querySelector('body');
 // function creates the webage layout
@@ -25,17 +26,36 @@ const createLayout = (() => {
 
 	const bodyDiv = document.createElement('div');
 	bodyDiv.classList.add('bodyDiv');
+
 	const locationText = document.createElement('p');
-	locationText.textContent = 'Kandy,Sri Lanka';
+	// locationText.textContent = 'Kandy,Sri Lanka';
 	locationText.classList.add('locationText');
 	const dateTimeDiv = document.createElement('div');
 	dateTimeDiv.classList.add('dateTimeDiv');
-	const datePara = document.createElement('div');
-	datePara.textContent = 'Monday, 20th September 2021';
-	const timePara = document.createElement('p');
-	timePara.textContent = '12:00 PM';
-	dateTimeDiv.append(datePara, timePara);
-	bodyDiv.append(locationText, dateTimeDiv);
+	// dateTimeDiv.textContent = '28/06/2024 12:00PM'
+	
+	//weather condition, temp, humidity
+	const weatherDiv = document.createElement('div');
+	weatherDiv.classList.add('weatherDiv');
+	const condition = document.createElement('p');
+	condition.classList.add('condition');
+	// condition.textContent = 'cloudy';
+	const temperature = document.createElement('p');
+	temperature.classList.add('temperature');
+	// temperature.textContent = '28dc'
+	const humidity = document.createElement('p');
+	humidity.classList.add('humidity');
+	// humidity.textContent = '40%'
+	weatherDiv.append(condition, temperature, humidity);
+	bodyDiv.append(locationText, dateTimeDiv,weatherDiv);
 
 	body.append(header, bodyDiv);
+
+	//add event listener to search btn
+	searchBtn.addEventListener('click', () => {
+		const location = searchBar.value;
+		fetchWeatherData(location);
+		searchBar.value = '';
+	})
 })();
+

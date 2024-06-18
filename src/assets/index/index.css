@@ -1,6 +1,7 @@
 body{
     background-image: linear-gradient(to top, rgba(78, 67, 118, 1) , rgba(43, 88, 118, 1));
     height: 100vh;
+	color: white;
 }
 
 .header{
@@ -11,7 +12,6 @@ body{
 
 .header .logoDiv{
 	display: flex;
-	color: white;
 	font-size: 2rem;
 	font-weight: 600;
 	height: 40px;
@@ -28,6 +28,10 @@ body{
 	text-align: center;
 }
 
+.header button{
+	cursor: pointer;
+}
+
 .header input::placeholder{
 	color: white;
 }
@@ -40,18 +44,23 @@ body{
 
 .locationText{
 	margin-top: 80px;
-	color: white;
 	font-size: 3rem;
 }
 
 .dateTimeDiv{
 	display: flex;
 	gap: 10px;
-	color: white;
 	font-size: 1.5rem;
 }
 
 .dateTimeDiv div{
 	border-right: 2px solid white;
 	padding-right: 10px;
+}
+
+.weatherDiv{
+	margin-top: 60px;
+	display: flex;
+	gap: 70px;
+	font-size: 2rem;
 }
